@@ -1,6 +1,6 @@
-package com.example.mobi7.converter;
+package com.example.mobi7.infrastructure.converter;
 
-import com.example.mobi7.model.Position;
+import com.example.mobi7.core.model.Position;
 import com.opencsv.bean.AbstractBeanField;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import java.time.LocalDateTime;

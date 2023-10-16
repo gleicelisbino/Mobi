@@ -10,7 +10,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:h2:mem:mydatabase;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
       - SPRING_DATASOURCE_USERNAME=sa
       - SPRING_DATASOURCE_PASSWORD=
-      # - REDIS_HOST=redis
+       - REDIS_HOST=redis
     depends_on:
       - db
     ports:
@@ -24,7 +24,7 @@ services:
     ports:
       - "5433:9092"
 
-#  redis:
-#    image: "redis:latest"
-#    ports:
-#      - "6380:6379"
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6380:6379"

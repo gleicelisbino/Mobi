@@ -1,6 +1,6 @@
-package com.example.mobi7.model;
+package com.example.mobi7.core.model;
 
-import com.example.mobi7.converter.CustomDateConverter;
+import com.example.mobi7.infrastructure.converter.CustomDateConverter;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 import java.time.LocalDateTime;
@@ -19,13 +19,13 @@ public class Position {
   private Long id;
 
   @CsvBindByName(column = "placa")
-  private String plate;
+  private String placa;
 
   @CsvCustomBindByName(column = "data_posicao", converter = CustomDateConverter.class)
-  private LocalDateTime positionDate;
+  private LocalDateTime data_posicao;
 
   @CsvBindByName(column = "velocidade")
-  private float velocity;
+  private float velocidade;
 
   @CsvBindByName(column = "longitude")
   private double longitude;
@@ -34,5 +34,5 @@ public class Position {
   private double latitude;
 
   @CsvBindByName(column = "ignicao")
-  private boolean ignition;
+  private boolean ignicao;
 }

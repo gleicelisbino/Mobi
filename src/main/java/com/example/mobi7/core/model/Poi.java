@@ -1,4 +1,4 @@
-package com.example.mobi7.model;
+package com.example.mobi7.core.model;
 
 import com.opencsv.bean.CsvBindByName;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class Poi {
   private Long id;
 
   @CsvBindByName(column = "nome")
-  private String name;
+  private String nome;
 
   @CsvBindByName(column = "latitude")
   private double latitude;
@@ -25,5 +25,5 @@ public class Poi {
   private double longitude;
 
   @CsvBindByName(column = "raio")
-  private double ray;
+  private double raio;
 }

@@ -1,7 +1,7 @@
-package com.example.mobi7.controller;
+package com.example.mobi7.infrastructure.controller;
 
-import com.example.mobi7.model.Poi;
-import com.example.mobi7.service.PoiService;
+import com.example.mobi7.core.model.Poi;
+import com.example.mobi7.core.service.PoiService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/poi")
+@RequestMapping("/pois")
 public class PoiController {
   @Autowired private PoiService poiService;
 
   @PostMapping("/create")
-  public ResponseEntity<Poi> createPOI(@RequestBody Poi poi) {
-    return new ResponseEntity<>(poiService.savePOI(poi), HttpStatus.CREATED);
+  public ResponseEntity<List<Poi>> createPois(@RequestBody List<Poi> pois) {
+    return new ResponseEntity<>(poiService.savePOI(pois), HttpStatus.CREATED);
   }
 
   @PostMapping(value = "/upload-file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

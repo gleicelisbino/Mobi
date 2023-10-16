@@ -1,7 +1,8 @@
-package com.example.mobi7.controller;
+package com.example.mobi7.infrastructure.controller;
 
-import com.example.mobi7.model.Position;
-import com.example.mobi7.service.PositionService;
+import com.example.mobi7.core.model.Position;
+import com.example.mobi7.core.service.PositionService;
+import com.example.mobi7.usecase.dto.position.PositionRequest;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -18,12 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/position")
+@RequestMapping("/positions")
 public class PositionController {
   @Autowired private PositionService positionService;
 
   @PostMapping("/create")
-  public ResponseEntity<List<Position>> createPositions(@RequestBody List<Position> positions) {
+  public ResponseEntity<List<Position>> createPositions(
+      @RequestBody List<PositionRequest> positions) {
     return new ResponseEntity<>(positionService.savePositions(positions), HttpStatus.CREATED);
   }
 
@@ -34,7 +36,7 @@ public class PositionController {
 
   @GetMapping("/vehicle-in-poi")
   public Map<String, Duration> vehiclesInPoi(
-      @RequestParam String poiName, @RequestParam List<String> plates) {
-    return positionService.vehiclesInPoi(poiName, plates);
+      @RequestParam String poiNome, @RequestParam List<String> placas) {
+    return positionService.vehiclesInPoi(poiNome, placas);
   }
 }

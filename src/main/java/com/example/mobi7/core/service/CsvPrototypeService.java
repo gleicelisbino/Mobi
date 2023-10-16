@@ -1,4 +1,4 @@
-package com.example.mobi7.service;
+package com.example.mobi7.core.service;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
@@ -22,10 +22,8 @@ public class CsvPrototypeService implements Cloneable {
 
   public <T> List<T> readCSV(MultipartFile file, Class<T> type) {
     try (Reader reader = new InputStreamReader(file.getInputStream())) {
-
       HeaderColumnNameMappingStrategy<T> strategy = new HeaderColumnNameMappingStrategy<>();
       strategy.setType(type);
-
       return new CsvToBeanBuilder<T>(reader)
           .withType(type)
           .withMappingStrategy(strategy)
